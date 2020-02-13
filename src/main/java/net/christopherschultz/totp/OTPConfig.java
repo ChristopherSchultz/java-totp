@@ -38,6 +38,34 @@ public class OTPConfig {
         this.counter = counter;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public String getIssuer() {
+        return issuer;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public int getDigits() {
+        return digits;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
     @Override
     public String toString() {
         try {
