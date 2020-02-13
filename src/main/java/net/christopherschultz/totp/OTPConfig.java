@@ -3,7 +3,6 @@ package net.christopherschultz.totp;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -160,8 +159,6 @@ public class OTPConfig {
 
         String algorithm = params.get("algorithm");
         if(null == algorithm)
-            algorithm = DEFAULT_OTP_HMAC_ALGORITHM;
-        else if(!algorithm.toLowerCase(Locale.ENGLISH).startsWith("hmac"))
             algorithm = DEFAULT_OTP_HMAC_ALGORITHM;
 
         int digits = DEFAULT_OTP_DIGITS;
