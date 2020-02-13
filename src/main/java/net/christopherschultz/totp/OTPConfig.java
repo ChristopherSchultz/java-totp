@@ -27,6 +27,17 @@ public class OTPConfig {
     protected final int period;
     protected final int counter;
 
+    /**
+     * Creates a new OTPConfig.
+     *
+     * @param type The type of OTP configuration e.g. <code>totp</code> or <code>hotp</code>.
+     * @param issuer The issuer of the OTP configuration.
+     * @param secret The secret/seed for the OTP algorithm, Base32-encoded without padding.
+     * @param algorithm The algorithm to be used for OTP.
+     * @param digits The number of output digits to be used.
+     * @param period The time interval between token changes (TOTP only).
+     * @param counter The initial counter value (HOTP only).
+     */
     public OTPConfig(String type, String issuer, String secret, String algorithm, int digits, int period, int counter) {
         this.type = type;
         this.issuer = issuer;
@@ -37,34 +48,80 @@ public class OTPConfig {
         this.counter = counter;
     }
 
+    /**
+     * Gets the type of OTP configuration.
+     *
+     * @return The type of OTP configuration e.g. <code>totp</code> or <code>hotp</code>.
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Gets the issuer of the OTP configuration.
+     *
+     * @return The issuer of the OTP configuration.
+     */
     public String getIssuer() {
         return issuer;
     }
 
+    /**
+     * Gets the secret or seed of the OTP configuration.
+     *
+     * @return The secret/seed of the OTP configuration, Base32-encoded without padding.
+     */
     public String getSecret() {
         return secret;
     }
 
+    /**
+     * Gets the OTP algorithm to use.
+     *
+     * @return The OTP algorithm to use e.g. SHA1, SHA256.
+     */
     public String getAlgorithm() {
         return algorithm;
     }
 
+    /**
+     * Gets the number of token digits to use.
+     *
+     * @return The number of token digits to use (usually 6 or 8).
+     */
     public int getDigits() {
         return digits;
     }
 
+    /**
+     * Gets the period, in seconds, of the TOTP time intervals.
+     * This is only valid if the type is TOTP.
+     *
+     * @return The period, in seconds, of the TOTP time intervals.
+     */
     public int getPeriod() {
         return period;
     }
 
+    /**
+     * Gets the initial value of the HOTP counter.
+     * This is only valid if the type is HOTP.
+     *
+     * @return The initial value for the HOTP counter.
+     */
     public int getCounter() {
         return counter;
     }
 
+    /**
+     * Returns a string representation of this OTPConfig in the
+     * format described here:
+     * https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+     *
+     * Any default values will be omitted.
+     *
+     * @return A String representation of this OTPConfig.
+     */
     @Override
     public String toString() {
         try {
