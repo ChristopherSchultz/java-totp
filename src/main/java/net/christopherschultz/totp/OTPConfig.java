@@ -15,10 +15,10 @@ import java.util.Objects;
 public class OTPConfig {
     // NOTE: DO NOT change these defaults; they are not preferences,
     // but spec-defined defaults.
-    private static final String DEFAULT_OTP_HMAC_ALGORITHM = "SHA1";
-    private static final int DEFAULT_OTP_DIGITS = 6;
-    private static final int DEFAULT_OTP_PERIOD = 30;
-    private static final int DEFAULT_OTP_COUNTER = 0;
+    public static final String DEFAULT_OTP_HMAC_ALGORITHM = "SHA1";
+    public static final int DEFAULT_OTP_DIGITS = 6;
+    public static final int DEFAULT_OTP_PERIOD = 30;
+    public static final int DEFAULT_OTP_COUNTER = 0;
 
     protected final String type;
     protected final String issuer;
